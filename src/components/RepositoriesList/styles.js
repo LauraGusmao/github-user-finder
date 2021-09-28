@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
 export const StyledTabs = styled(Tabs)`
@@ -20,8 +20,7 @@ export const StyledTab = styled(Tab)`
   border-radius: 10px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  border: 1px solid #ccc; 
-  margin-left: 0;
+  border: 1px solid #ccc;
   padding: 16px;
   user-select: none;
   cursor: pointer;
@@ -37,7 +36,7 @@ export const StyledTab = styled(Tab)`
   }
 `;
 
-StyledTabList.tabsRole = 'Tab';
+StyledTab.tabsRole = 'Tab';
 
 
 export const StyledTabPanel = styled(TabPanel)`
@@ -55,5 +54,4 @@ export const StyledTabPanel = styled(TabPanel)`
   }
 `;
 
-StyledTabList.tabsRole = 'TabPanel';
-
+StyledTabPanel.tabsRole = 'TabPanel';
