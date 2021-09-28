@@ -1,9 +1,15 @@
+import React from 'react';
+import Layout from './components/Layout';
+import Profile from './components/Profile';
 
 function App() {
   return (
-    <div>
-      <p>Hello World</p>
-    </div>
+    <main>
+      <Layout>
+        <Profile />
+        <div>Repositories</div>
+      </Layout>
+    </main>
   );
 }
 
