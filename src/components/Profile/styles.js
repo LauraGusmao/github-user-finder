@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -27,7 +27,7 @@ export const WrapperUserInfo = styled.div`
     font-size: 16px;
     font-weight: bold;
   }
-`; 
+`;
 
 export const WrapperStatusCount = styled.div`
   display: flex;

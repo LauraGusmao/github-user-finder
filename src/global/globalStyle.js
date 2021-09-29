@@ -1,7 +1,11 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
-export const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
   body {
     font-family: roboto, sans-serif;
+    background-color: #f1faee;
+    color: #1d3557;
   }
 `;
+
+export default GlobalStyle;

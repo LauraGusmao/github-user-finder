@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import {
+  Tab, Tabs, TabList, TabPanel,
+} from 'react-tabs';
 
 export const StyledTabs = styled(Tabs)`
   font-size: 16px;
@@ -37,7 +39,6 @@ export const StyledTab = styled(Tab)`
 `;
 
 StyledTab.tabsRole = 'Tab';
-
 
 export const StyledTabPanel = styled(TabPanel)`
   display: none;

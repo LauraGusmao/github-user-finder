@@ -1,6 +1,8 @@
-import React from "react";
+import React from 'react';
 import RepositoryItem from '../RepositoryItem';
-import { StyledTabs, StyledTabList, StyledTab, StyledTabPanel } from './styles';
+import {
+  StyledTabs, StyledTabList, StyledTab, StyledTabPanel,
+} from './styles';
 
 function RepositoriesList() {
   return (
