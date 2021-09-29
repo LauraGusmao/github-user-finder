@@ -25,6 +25,7 @@ function GithubProvider({ children }) {
 
   const context = {
     githubInfo,
+    setGithubInfo,
   };
 
   return (

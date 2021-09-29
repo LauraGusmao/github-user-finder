@@ -27,14 +27,14 @@ export const StyledTab = styled(Tab)`
   user-select: none;
   cursor: pointer;
   z-index: 999;
-  background-color: #ffffff;
+  background-color: #f1faee;
 
   &:focus {
     outline: none;
   }
 
   &.is-selected {
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid #f1faee;
   }
 `;
 
@@ -45,11 +45,11 @@ export const StyledTabPanel = styled(TabPanel)`
   margin-top: -5px;
   margin-left: 3.5px;
   padding: 16px;
-  border-top: 1px solid #ccc;
+  border: 1px solid #ccc;
 
   &.is-selected {
     display: block;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid #ccc;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
