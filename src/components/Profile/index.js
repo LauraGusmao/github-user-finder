@@ -3,35 +3,40 @@ import GithubContext from '../../context/GithubContext';
 import * as S from './styles';
 
 function Profile() {
-  const { githubInfo } = useContext(GithubContext);
-  const { user } = githubInfo;
+  const { githubUser } = useContext(GithubContext);
+  const { data } = githubUser;
+
+  if (!data) return <div>Loading...</div>;
+
   return (
     <S.Wrapper>
-      <S.Image src={ user.avatar } alt="User avatar" />
+      <S.Image src={ data.avatar_url } alt="User avatar" />
       <S.WrapperUserInfo>
         <div>
-          <h1>{ user.name }</h1>
+          <h1>{ data.name }</h1>
           <S.WrapperUsername>
             <h3>Username:</h3>
-            <a href={ user.html_url } target="_blank" rel="noreferrer">{ user.login }</a>
+            <a href={ data.html_url } target="_blank" rel="noreferrer">{ data.login }</a>
           </S.WrapperUsername>
+          <S.Location>{ data.location }</S.Location>
+          <S.Bio>{ data.bio }</S.Bio>
         </div>
         <S.WrapperStatusCount>
           <div>
             <h4>Repositories</h4>
-            <span>{ user.public_repos }</span>
+            <span>{ data.public_repos }</span>
           </div>
           <div>
             <h4>Followers</h4>
-            <span>{ user.followers }</span>
+            <span>{ data.followers }</span>
           </div>
           <div>
             <h4>Following</h4>
-            <span>{ user.following }</span>
+            <span>{ data.following }</span>
           </div>
           <div>
             <h4>Gists</h4>
-            <span>{ user.public_gists }</span>
+            <span>{ data.public_gists }</span>
           </div>
         </S.WrapperStatusCount>
       </S.WrapperUserInfo>

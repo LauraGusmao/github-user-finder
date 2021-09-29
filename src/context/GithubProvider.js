@@ -1,31 +1,49 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import GithubContext from './GithubContext';
+import api from '../services/api';
 
 function GithubProvider({ children }) {
-  const [githubInfo, setGithubInfo] = useState({
-    hasUser: false,
-    loading: false,
-    user: {
-      id: undefined,
-      avatar: undefined,
-      login: undefined,
-      name: undefined,
-      html_url: undefined,
-      blog: undefined,
-      company: undefined,
-      location: undefined,
-      followers: 0,
-      following: 0,
-      public_gists: 0,
-      public_repos: 0,
-    },
-    repositories: [],
-    starred: [],
-  });
+  const [loading, setLoading] = useState(true);
+  const [hasUser, setHasUser] = useState(false);
+  const [githubUser, setGithubUser] = useState({});
+  const [userRepos, setUserRepos] = useState([]);
+  const [userStarred, setUserStarred] = useState([]);
+
+  const getUser = (username) => {
+    api
+      .get(`users/${username}`)
+      .then((response) => setGithubUser(response));
+    setLoading(false);
+    setHasUser(true);
+  };
+
+  const getUserRepos = (username) => {
+    api
+      .get(`users/${username}/repos`)
+      .then((response) => setUserRepos(response));
+  };
+
+  const getUserStarred = (username) => {
+    api
+      .get(`users/${username}/repos`)
+      .then((response) => setUserStarred(response));
+  };
+
+  useEffect(() => {
+    getUser('LauraGusmao');
+    getUserRepos('LauraGusmao');
+    getUserStarred('LauraGusmao');
+  }, []);
 
   const context = {
-    githubInfo,
-    setGithubInfo,
+    loading,
+    githubUser,
+    hasUser,
+    userRepos,
+    userStarred,
+    getUser, // : useCallback((username) => getUser(username), []),
+    getUserRepos, // : useCallback((username) => getUserRepos(username), []),
+    getUserStarred, // : useCallback((username) => getUserStarred(username), []),
   };
 
   return (

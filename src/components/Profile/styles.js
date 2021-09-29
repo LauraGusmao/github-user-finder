@@ -29,6 +29,14 @@ export const WrapperUserInfo = styled.div`
   }
 `;
 
+export const Location = styled.p`
+  margin: 16px 0;
+`;
+
+export const Bio = styled.p`
+  margin: 16px 0;
+`;
+
 export const WrapperStatusCount = styled.div`
   display: flex;
   align-items: center;
