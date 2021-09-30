@@ -7,6 +7,7 @@ export const StyledTabs = styled(Tabs)`
   font-size: 16px;
   width: 100%;
   margin-top: 16px;
+  margin-bottom: 72px;
 `;
 
 export const StyledTabList = styled(TabList)`
@@ -48,6 +49,8 @@ export const StyledTabPanel = styled(TabPanel)`
   margin-left: 3.5px;
   padding: 16px;
   border: 1px solid #ccc;
+  background-color: #f1faee;
+
 
   &.is-selected {
     display: block;

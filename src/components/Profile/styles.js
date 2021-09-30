@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   display: flex;
   align-items: flex-start;
+  margin-bottom: 40px;
 `;
 
 export const WrapperUser = styled.div`
@@ -11,11 +12,12 @@ export const WrapperUser = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   height: 200px;
-  margin-left: 24px;
+  margin-left: 32px;
 
   h1 {
     font-size: 32px;
     font-weight: bold;
+    margin-bottom: 16px;
   }
 
   h3 {
@@ -36,9 +38,15 @@ export const Bio = styled.p`
 export const WrapperStatusCount = styled.div`
   display: flex;
   align-items: center;
+
   div {
     margin: 8px;
+    margin-left: 0;
     text-align: center;
+
+    h4 {
+      margin-bottom: 8px;
+    }
   }
 `;
 

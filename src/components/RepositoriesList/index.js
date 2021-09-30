@@ -38,8 +38,10 @@ function RepositoriesList() {
               <RepositoryItem
                 key={ repo.id }
                 name={ repo.name }
-                fullname={ repo.full_name }
+                owner={ repo.owner.login }
+                description={ repo.description }
                 linkToRepo={ repo.html_url }
+                forked={ repo.fork }
               />
             )) }
           </StyledTabPanel>
@@ -48,7 +50,8 @@ function RepositoriesList() {
               <RepositoryItem
                 key={ repo.id }
                 name={ repo.name }
-                fullname={ repo.full_name }
+                owner={ repo.owner.login }
+                description={ repo.description }
                 linkToRepo={ repo.html_url }
               />
             )) }
