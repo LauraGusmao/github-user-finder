@@ -9,7 +9,7 @@ function Header() {
   const handleSearchInput = () => {
     if (!searchInput) {
       // eslint-disable-next-line no-alert
-      alert('Digite um username');
+      alert('Enter a username');
     }
     getUser(searchInput);
   };
@@ -20,11 +20,11 @@ function Header() {
       <S.Wrapper>
         <input
           type="text"
-          placeholder="Digite o username"
+          placeholder="Enter a username"
           onChange={ (event) => setSearchInput(event.target.value) }
         />
         <button type="submit" onClick={ handleSearchInput }>
-          Buscar
+          Search
         </button>
       </S.Wrapper>
     </header>

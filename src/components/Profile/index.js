@@ -11,14 +11,25 @@ function Profile() {
   return (
     <S.Wrapper>
       <S.Image src={ data.avatar_url } alt="User avatar" />
-      <S.WrapperUserInfo>
+      <S.WrapperUser>
         <div>
           <h1>{ data.name }</h1>
-          <S.WrapperUsername>
+          <S.WrapperInfo>
             <h3>Username:</h3>
             <a href={ data.html_url } target="_blank" rel="noreferrer">{ data.login }</a>
-          </S.WrapperUsername>
-          <S.Location>{ data.location }</S.Location>
+          </S.WrapperInfo>
+          <S.WrapperInfo>
+            <h3>Location:</h3>
+            <span>{ data.location }</span>
+          </S.WrapperInfo>
+          <S.WrapperInfo>
+            <h3>Company:</h3>
+            <span>{ data.company }</span>
+          </S.WrapperInfo>
+          <S.WrapperInfo>
+            <h3>Website:</h3>
+            <a href={ data.blog } target="_blank" rel="noreferrer">{ data.blog }</a>
+          </S.WrapperInfo>
           <S.Bio>{ data.bio }</S.Bio>
         </div>
         <S.WrapperStatusCount>
@@ -39,7 +50,7 @@ function Profile() {
             <span>{ data.public_gists }</span>
           </div>
         </S.WrapperStatusCount>
-      </S.WrapperUserInfo>
+      </S.WrapperUser>
     </S.Wrapper>
   );
 }

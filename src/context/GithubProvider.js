@@ -3,18 +3,21 @@ import GithubContext from './GithubContext';
 import api from '../services/api';
 
 function GithubProvider({ children }) {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [hasUser, setHasUser] = useState(false);
   const [githubUser, setGithubUser] = useState({});
   const [userRepos, setUserRepos] = useState([]);
   const [userStarred, setUserStarred] = useState([]);
 
   const getUser = (username) => {
+    setLoading(true);
     api
       .get(`users/${username}`)
-      .then((response) => setGithubUser(response));
-    setLoading(false);
-    setHasUser(true);
+      .then((response) => setGithubUser(response))
+      .finally(() => {
+        setLoading(false);
+        setHasUser(true);
+      });
   };
 
   const getUserRepos = (username) => {

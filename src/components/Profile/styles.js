@@ -5,13 +5,13 @@ export const Wrapper = styled.div`
   align-items: flex-start;
 `;
 
-export const WrapperUserInfo = styled.div`
+export const WrapperUser = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
   height: 200px;
-  margin-left: 8px;
+  margin-left: 24px;
 
   h1 {
     font-size: 32px;
@@ -29,10 +29,6 @@ export const WrapperUserInfo = styled.div`
   }
 `;
 
-export const Location = styled.p`
-  margin: 16px 0;
-`;
-
 export const Bio = styled.p`
   margin: 16px 0;
 `;
@@ -46,7 +42,7 @@ export const WrapperStatusCount = styled.div`
   }
 `;
 
-export const WrapperUsername = styled.div`
+export const WrapperInfo = styled.div`
   display: flex;
   align-items: center;
   margin-top: 8px;

@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 export const Title = styled.h1`
   font-weight: bold;
-  font-size: 32px;
+  font-size: 40px;
+  color: hotpink;
+  margin: 16px 3px;
 `;
 
 export const Wrapper = styled.div`
@@ -10,6 +12,7 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   width: 100%;
   padding: 4px;
+  margin-bottom: 32px;
 
   input {
     border: 1px solid #ccc;

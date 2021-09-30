@@ -19,6 +19,9 @@ export const StyledTabList = styled(TabList)`
 StyledTabList.tabsRole = 'TabList';
 
 export const StyledTab = styled(Tab)`
+  background-color: #f1faee;
+  font-weight: bold;
+  color: hotpink;
   border-radius: 10px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -27,7 +30,6 @@ export const StyledTab = styled(Tab)`
   user-select: none;
   cursor: pointer;
   z-index: 999;
-  background-color: #f1faee;
 
   &:focus {
     outline: none;
