@@ -4,7 +4,6 @@ import api from '../services/api';
 
 function GithubProvider({ children }) {
   const [loading, setLoading] = useState(false);
-  const [hasUser, setHasUser] = useState(false);
   const [githubUser, setGithubUser] = useState({});
   const [userRepos, setUserRepos] = useState([]);
   const [userStarred, setUserStarred] = useState([]);
@@ -13,23 +12,22 @@ function GithubProvider({ children }) {
     setLoading(true);
     api
       .get(`users/${username}`)
-      .then((response) => setGithubUser(response))
+      .then(({ data }) => setGithubUser(data))
       .finally(() => {
         setLoading(false);
-        setHasUser(true);
       });
   };
 
   const getUserRepos = (username) => {
     api
       .get(`users/${username}/repos`)
-      .then((response) => setUserRepos(response));
+      .then(({ data }) => setUserRepos(data));
   };
 
   const getUserStarred = (username) => {
     api
-      .get(`users/${username}/repos`)
-      .then((response) => setUserStarred(response));
+      .get(`users/${username}/starred`)
+      .then(({ data }) => setUserStarred(data));
   };
 
   useEffect(() => {
@@ -41,7 +39,6 @@ function GithubProvider({ children }) {
   const context = {
     loading,
     githubUser,
-    hasUser,
     userRepos,
     userStarred,
     getUser, // : useCallback((username) => getUser(username), []),

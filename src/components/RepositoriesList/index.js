@@ -1,36 +1,63 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import GithubContext from '../../context/GithubContext';
 import RepositoryItem from '../RepositoryItem';
 import {
   StyledTabs, StyledTabList, StyledTab, StyledTabPanel,
 } from './styles';
 
 function RepositoriesList() {
+  const [hasUserRepos, setHasUserRepos] = useState(false);
+  const {
+    githubUser, userRepos, getUserRepos, userStarred, getUserStarred,
+  } = useContext(GithubContext);
+
+  useEffect(() => {
+    if (githubUser.login) {
+      getUserRepos(githubUser.login);
+      getUserStarred(githubUser.login);
+    }
+    setHasUserRepos(true);
+  }, [githubUser.login]);
+
+  if (!userRepos) return <div>Loading...</div>;
+
   return (
-    <StyledTabs
-      selectedTabClassName="is-selected"
-      selectedTabPanelClassName="is-selected"
-    >
-      <StyledTabList>
-        <StyledTab>Repositories</StyledTab>
-        <StyledTab>Starred</StyledTab>
-      </StyledTabList>
-      <StyledTabPanel>
-        Panel Repositories
-        <RepositoryItem
-          name="nome 1"
-          fullname="fullname 1"
-          linkToRepo="link 1"
-        />
-      </StyledTabPanel>
-      <StyledTabPanel>
-        Panel Starred
-        <RepositoryItem
-          name="nome 2"
-          fullname="fullname 2"
-          linkToRepo="link 2"
-        />
-      </StyledTabPanel>
-    </StyledTabs>
+    <>
+      { hasUserRepos ? (
+
+        <StyledTabs
+          selectedTabClassName="is-selected"
+          selectedTabPanelClassName="is-selected"
+        >
+          <StyledTabList>
+            <StyledTab>Repositories</StyledTab>
+            <StyledTab>Starred</StyledTab>
+          </StyledTabList>
+          <StyledTabPanel>
+            { userRepos.map((repo) => (
+              <RepositoryItem
+                key={ repo.id }
+                name={ repo.name }
+                fullname={ repo.full_name }
+                linkToRepo={ repo.html_url }
+              />
+            )) }
+          </StyledTabPanel>
+          <StyledTabPanel>
+            { userStarred.map((repo) => (
+              <RepositoryItem
+                key={ repo.id }
+                name={ repo.name }
+                fullname={ repo.full_name }
+                linkToRepo={ repo.html_url }
+              />
+            )) }
+          </StyledTabPanel>
+        </StyledTabs>
+      ) : (
+        <></>
+      )}
+    </>
   );
 }
 
